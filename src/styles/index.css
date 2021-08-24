@@ -1,0 +1,99 @@
+:root {
+	--primary-color: #5465ff;
+	--secondary-color: #788bff;
+	--primary-text: #111111;
+	--secondary-text: #fefefe;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+.nav {
+	width: 100%;
+
+	float: right;
+	margin: 0 0 2em 0;
+	/* 2em is padding after nav for future reference x */
+	padding: 0;
+	list-style: none;
+	display: table;
+	background-color: var(--primary-color);
+}
+
+.nav li {
+	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+	padding: 18px 40px;
+	transition: background-color 300ms;
+	background-color: inherit;
+}
+
+.nav li:hover {
+	background-color: var(--secondary-color);
+}
+
+.nav li a {
+	display: table-cell;
+	text-decoration: none;
+	font-size: large;
+	font-weight: normal;
+	color: var(--secondary-text);
+}
+
+.logo {
+	width: 5px;
+	height: 10px;
+	float: left;
+}
+
+.nav li a:hover {
+	color: var(--primary-text);
+	transition: color 0.5s;
+}
+
+/* .nav {
+	float: right;
+	width: 50%;
+	text-align: right;
+	margin-right: 25px;
+}
+
+.nav ul {
+	list-style: none;
+	float: right;
+}
+
+.nav ul li {
+	float: left;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: left;
+	margin-right: 25px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	transition: all 0.3s linear;
+}
+
+.nav ul li a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.nav ul li:hover a {
+	color: #c5c5c5;
+	font-size: 15px;
+} */
