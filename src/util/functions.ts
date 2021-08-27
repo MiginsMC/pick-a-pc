@@ -4,23 +4,23 @@ import COMPUTERS from './computers';
 // tag input is list of tags
 function findMatch(tags: TagTypes[]) {
 	// Define variable to store number of Tag matches
-	let matches: {
+	let matches: Array<{
 		place: number;
 		matches: number;
-	}[];
+	}> = [];
 	for (let computer in COMPUTERS) {
 		// computer represents its key within COMPUTERS
-		let place = parseInt(computer); // Initially a string, convert to integer to use as key elsewhere
-		let matches[place] = {
-			place,
+		let index = parseInt(computer); // Initially a string, convert to integer to use as key elsewhere
+		matches.push({
+			place: index,
 			matches: 0,
-		}
-		for (let tag of COMPUTERS[place].tags) {
+		});
+		for (let tag of COMPUTERS[index].tags) {
 			// Loops through each tag of each computer
 			if (tags.includes(tag))
-				matches[place] = {
-					place,
-					matches: matches[place].matches++,
+				matches[index] = {
+					place: index,
+					matches: matches[index].matches++,
 				};
 		}
 	}
