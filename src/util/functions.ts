@@ -11,7 +11,8 @@ function findMatch(tags: TagTypes[]) {
 	for (let computer in COMPUTERS) {
 		// computer represents its key within COMPUTERS
 		let place = parseInt(computer); // Initially a string, convert to integer to use as key elsewhere
-		for (let tag of COMPUTERS[place].tags) { // Loops through each tag of each computer
+		for (let tag of COMPUTERS[place].tags) {
+			// Loops through each tag of each computer
 			if (tags.includes(tag))
 				matches[place] = {
 					place,
@@ -21,6 +22,7 @@ function findMatch(tags: TagTypes[]) {
 	}
 	// Sort matches in descending order
 	const sortedMatches = matches.sort((a, b) => {
+		// TODO: Enforce required tags (laptop, desktop, etc - might have to rework tag types)
 		if (a.matches < b.matches) return 1; // Sort b before a as b is greater
 		if (a.matches > b.matches) return -1; // Sort a before b as a is greater
 		return 0; // Otherwise must be equal
