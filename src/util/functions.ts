@@ -11,6 +11,10 @@ function findMatch(tags: TagTypes[]) {
 	for (let computer in COMPUTERS) {
 		// computer represents its key within COMPUTERS
 		let place = parseInt(computer); // Initially a string, convert to integer to use as key elsewhere
+		let matches[place] = {
+			place,
+			matches: 0,
+		}
 		for (let tag of COMPUTERS[place].tags) {
 			// Loops through each tag of each computer
 			if (tags.includes(tag))
