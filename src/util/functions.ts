@@ -27,6 +27,11 @@ function findMatch(tags: TagTypes[]) {
 		if (a.matches > b.matches) return -1; // Sort a before b as a is greater
 		return 0; // Otherwise must be equal
 	});
-
-	return COMPUTERS[sortedMatches[0].place];
+	const topMatches = sortedMatches.filter(
+		e => e.place === sortedMatches[0].place
+	); // Top matches
+	return COMPUTERS.filter(e =>
+		topMatches.map(e => e.place).includes(COMPUTERS.indexOf(e))
+	);
+	// Map topMatches to their indexes and only return computers whose index is contains within topMatches
 }
