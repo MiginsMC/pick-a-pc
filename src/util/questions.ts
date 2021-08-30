@@ -31,9 +31,32 @@ const QUESTIONS: Question[] = [
 		help: 'Ram is speed of computer',
 		options: [
 			{
-				option: 'Question 1',
+				option: 'Eh nah',
 				tags: {
 					ram: LowRam,
+				},
+			},
+			{
+				option: 'Big ram',
+				tags: {
+					ram: HighRam,
+				},
+			},
+		],
+	},
+	{
+		question: 'Storage',
+		options: [
+			{
+				option: 'Eh nah',
+				tags: {
+					ram: LowRam,
+				},
+			},
+			{
+				option: 'Big storage',
+				tags: {
+					ram: HighRam,
 				},
 			},
 		],
