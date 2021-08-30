@@ -24,6 +24,9 @@ function Navbar() {
 				<li className="logo">
 					<Link to="/">
 						<img src={logo} width="50" height="50" alt="Logo" />
+						{
+							// TODO: Move logo into public, then src='/mainLogo.png' 
+						}
 					</Link>
 				</li>
 			</ul>

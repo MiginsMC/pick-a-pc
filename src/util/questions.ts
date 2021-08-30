@@ -1,4 +1,4 @@
-import { Tags, TagTypes } from "./constants";
+import { Tags, TagTypes } from './constants';
 
 const {
 	Laptop,
@@ -24,6 +24,7 @@ interface Question {
 	}[];
 }
 
+// TODO: Make questions conditional on current Tags
 const QUESTIONS: Question[] = [
 	{
 		question: 'How much ram do you want',
