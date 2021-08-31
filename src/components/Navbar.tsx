@@ -1,7 +1,6 @@
-import './styles/index.css';
+import '../styles/index.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './components/icons/mainLogo.png';
 
 function Navbar() {
 	// Logo - Home, Find, Quiz, Help
@@ -23,10 +22,7 @@ function Navbar() {
 				</li>
 				<li className="logo">
 					<Link to="/">
-						<img src={logo} width="50" height="50" alt="Logo" />
-						{
-							// TODO: Move logo into public, then src='/mainLogo.png' 
-						}
+						<img src="/mainLogo.png" width="50" height="50" alt="Logo" />
 					</Link>
 				</li>
 			</ul>
