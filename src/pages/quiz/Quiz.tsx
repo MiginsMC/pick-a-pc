@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import QUESTIONS from '../util/questions';
+import QUESTIONS from '../../util/questions';
 
 function Quiz() {
 	const [place, setPlace] = useState(0);
