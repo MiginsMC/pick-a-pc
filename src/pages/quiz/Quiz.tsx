@@ -1,9 +1,11 @@
 import React, { useState, FormEvent } from 'react';
 import QUESTIONS from '../../util/questions';
 
-function Quiz() {
-	const [place, setPlace] = useState(0);
-	const [startedQuiz, setStartedQuiz] = useState(false);
+interface QuizProps {
+	place: number;
+}
+
+function Quiz({ place }: QuizProps) {
 	const question = QUESTIONS[place]?.question;
 	const help = QUESTIONS[place]?.help || undefined;
 	const options = QUESTIONS[place]?.options;
@@ -14,18 +16,11 @@ function Quiz() {
 		</button>
 	));
 
-	function handleSubmit(event: FormEvent) {
-		event.preventDefault();
-		setPlace(place + 1);
-	}
-
 	return (
 		<div>
 			<p>{question}</p>
 			{help ?? ''}
-			<form name="pickAPC" onSubmit={handleSubmit}>
-				<p>{optionsFormatted}</p>
-			</form>
+			<p>{optionsFormatted}</p>
 		</div>
 	);
 }
