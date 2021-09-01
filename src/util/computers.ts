@@ -10,13 +10,13 @@ const COMPUTERS: Computer[] = [
 	{
 		name: '',
 		link: '',
-		tags: [{}],
+		tags: [],
 		image: '',
 	},
 	{
 		name: '',
 		link: '',
-		tags: [{}],
+		tags: [],
 		image: '',
 	},
 ];

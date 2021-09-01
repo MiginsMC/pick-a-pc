@@ -1,22 +1,26 @@
 import React, { FormEvent, useState } from 'react';
+import { TagTypes } from '../../util/constants';
 import QUESTIONS from '../../util/questions';
 import Quiz from './Quiz';
+import QuizResult from './QuizResult';
 import QuizStart from './QuizStart';
 
 function QuizPage() {
-	const [place, setPlace] = useState(0);
 	const [startedQuiz, setStartedQuiz] = useState();
+	const [quizResults, setQuizResults] = useState<TagTypes[]>();
 
-	function handleSubmit(event: FormEvent) {
-		event.preventDefault();
-		setPlace(place + 1);
+	function handleFinish(results: TagTypes[]) {
+		setQuizResults(results);
 	}
+
 	return (
 		<div>
 			{startedQuiz ? (
-				<form name="pickAPC" onSubmit={handleSubmit}>
-					<Quiz place={place} />
-				</form>
+				quizResults ? (
+					<QuizResult results={quizResults} />
+				) : (
+					<Quiz onFinish={handleFinish} />
+				)
 			) : (
 				<QuizStart />
 			)}

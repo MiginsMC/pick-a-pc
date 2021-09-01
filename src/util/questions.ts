@@ -20,7 +20,7 @@ interface Question {
 	help?: string;
 	options: {
 		option: string;
-		tags: TagTypes;
+		tag: TagTypes;
 	}[];
 }
 
@@ -32,15 +32,11 @@ const QUESTIONS: Question[] = [
 		options: [
 			{
 				option: 'Eh nah',
-				tags: {
-					ram: LowRam,
-				},
+				tag: LowRam,
 			},
 			{
 				option: 'Big ram',
-				tags: {
-					ram: HighRam,
-				},
+				tag: HighRam,
 			},
 		],
 	},
@@ -49,15 +45,11 @@ const QUESTIONS: Question[] = [
 		options: [
 			{
 				option: 'Eh nah',
-				tags: {
-					ram: LowRam,
-				},
+				tag: LowRam,
 			},
 			{
 				option: 'Big storage',
-				tags: {
-					ram: HighRam,
-				},
+				tag: HighRam,
 			},
 		],
 	},
