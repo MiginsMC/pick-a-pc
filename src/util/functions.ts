@@ -2,7 +2,7 @@ import { TagTypes } from './constants';
 import COMPUTERS from './computers';
 
 // tag input is list of tags
-function findMatch(tags: TagTypes[]) {
+export function findMatch(tags: TagTypes[]) {
 	// Define variable to store number of Tag matches
 	let matches: Array<{
 		place: number;
@@ -17,11 +17,12 @@ function findMatch(tags: TagTypes[]) {
 		});
 		for (let tag of COMPUTERS[index].tags) {
 			// Loops through each tag of each computer
-			if (tags.includes(tag))
+			if (tags.includes(tag)) {
 				matches[index] = {
 					place: index,
-					matches: matches[index].matches++,
+					matches: matches[index].matches + 1,
 				};
+			}
 		}
 	}
 	// Sort matches in descending order

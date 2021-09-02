@@ -1,22 +1,31 @@
-import { TagTypes } from './constants';
-interface Computer {
-	name: string;
-	link: string;
-	tags: TagTypes[];
-	image: string;
-}
+import { Computer, Tags } from './constants';
+
+const {
+	Laptop,
+	Desktop,
+	HighRam,
+	MidRam,
+	LowRam,
+	HighSSD,
+	MidSSD,
+	LowSSD,
+	Heavy,
+	Light,
+	Gaming,
+	Work,
+} = Tags;
 
 const COMPUTERS: Computer[] = [
 	{
-		name: '',
-		link: '',
-		tags: [],
+		name: 'good wam',
+		link: 'https://google.com',
+		tags: [HighRam, LowSSD],
 		image: '',
 	},
 	{
-		name: '',
+		name: 'eh wam',
 		link: '',
-		tags: [],
+		tags: [LowRam, HighSSD],
 		image: '',
 	},
 ];

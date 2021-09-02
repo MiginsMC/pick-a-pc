@@ -13,5 +13,12 @@ export enum Tags {
 	Work,
 }
 
-export type TagTypes = Tags.LowRam | Tags.MidRam | Tags.HighRam;
-// this will need to modified as it is assumed a list, maybe have the tag types just Tags
+export type TagTypes = Tags;
+// In case it needs to be modified later
+
+export type Computer = {
+	name: string;
+	link: string;
+	tags: TagTypes[];
+	image: string;
+};

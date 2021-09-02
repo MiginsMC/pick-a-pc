@@ -1,17 +1,13 @@
-import React, { FormEvent, useState } from 'react';
-import { TagTypes } from '../../util/constants';
-import QUESTIONS from '../../util/questions';
+import React, { useState } from 'react';
+import { Tags, TagTypes } from '../../util/constants';
 import Quiz from './Quiz';
 import QuizResult from './QuizResult';
 import QuizStart from './QuizStart';
 
 function QuizPage() {
-	const [startedQuiz, setStartedQuiz] = useState();
+	const [startedQuiz, setStartedQuiz] = useState(true);
+	// TODO: Start page
 	const [quizResults, setQuizResults] = useState<TagTypes[]>();
-
-	function handleFinish(results: TagTypes[]) {
-		setQuizResults(results);
-	}
 
 	return (
 		<div>
@@ -19,7 +15,7 @@ function QuizPage() {
 				quizResults ? (
 					<QuizResult results={quizResults} />
 				) : (
-					<Quiz onFinish={handleFinish} />
+					<Quiz onFinish={results => setQuizResults(results)} />
 				)
 			) : (
 				<QuizStart />

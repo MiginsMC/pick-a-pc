@@ -1,12 +1,12 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, useEffect } from 'react';
 import { TagTypes } from '../../util/constants';
 import QUESTIONS from '../../util/questions';
 
 interface QuizProps {
-	onFinish: (results: TagTypes[]) => void;
+	onFinish?: (results: TagTypes[]) => void;
 }
 
-function Quiz({ onFinish }: QuizProps) {
+function Quiz({ onFinish = () => {} }: QuizProps) {
 	const [place, setPlace] = useState(0);
 	const question = QUESTIONS[place]?.question;
 	const help = QUESTIONS[place]?.help || undefined;
@@ -19,6 +19,7 @@ function Quiz({ onFinish }: QuizProps) {
 			type="button"
 			name={options.indexOf(e).toString() ?? '-1'}
 			onClick={handleClick}
+			key={options.indexOf(e).toString()}
 		>
 			{e.option}
 		</button>
@@ -27,12 +28,22 @@ function Quiz({ onFinish }: QuizProps) {
 	function handleClick(event: MouseEvent) {
 		event.preventDefault();
 		// place starts at 0 so must add 1
-		if (place + 1 >= QUESTIONS.length) {
+		setQuizResults(results => [
+			...results,
+			options[parseInt((event.target as HTMLButtonElement).name)].tag,
+		]);
+		if (place + 1 < QUESTIONS.length) {
+			setPlace(place + 1);
+		} else {
+			setPlace(-1);
+		}
+	}
+
+	useEffect(() => {
+		if (place === -1) {
 			onFinish(quizResults);
 		}
-		setQuizResults([...quizResults, options[parseInt((event.target as HTMLButtonElement).name)].tag]);
-		setPlace(place + 1);
-	}
+	}, [quizResults, place, onFinish]);
 
 	return (
 		<div>

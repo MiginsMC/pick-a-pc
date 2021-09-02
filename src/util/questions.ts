@@ -45,11 +45,11 @@ const QUESTIONS: Question[] = [
 		options: [
 			{
 				option: 'Eh nah',
-				tag: LowRam,
+				tag: LowSSD,
 			},
 			{
 				option: 'Big storage',
-				tag: HighRam,
+				tag: HighSSD,
 			},
 		],
 	},
