@@ -27,11 +27,11 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 
 	function handleClick(event: MouseEvent) {
 		event.preventDefault();
-		// place starts at 0 so must add 1
 		setQuizResults(results => [
 			...results,
 			options[parseInt((event.target as HTMLButtonElement).name)].tag,
 		]);
+		// place starts at 0 so must add 1
 		if (place + 1 < QUESTIONS.length) {
 			setPlace(place + 1);
 		} else {
