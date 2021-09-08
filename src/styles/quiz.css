@@ -1,0 +1,14 @@
+:root {
+	--primary-color: #5465ff;
+	--secondary-color: #788bff;
+	--primary-text: #111111;
+	--secondary-text: #fefefe;
+}
+
+.quiz {
+    border: 15px solid var(--secondary-color);
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    
+}

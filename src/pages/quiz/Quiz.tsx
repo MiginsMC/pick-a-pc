@@ -1,6 +1,7 @@
 import React, { useState, MouseEvent, useEffect } from 'react';
 import { TagTypes } from '../../util/constants';
 import QUESTIONS from '../../util/questions';
+import '../../styles/quiz.css';
 
 interface QuizProps {
 	onFinish?: (results: TagTypes[]) => void;
@@ -46,10 +47,10 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 	}, [quizResults, place, onFinish]);
 
 	return (
-		<div>
-			<p>{question}</p>
+		<div className="quiz">
+			<div className="question">{question}</div>
 			{help ?? ''}
-			<p>{optionsFormatted}</p>
+			<div className="optopns">{optionsFormatted}</div>
 		</div>
 	);
 }

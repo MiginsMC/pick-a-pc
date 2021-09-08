@@ -31,39 +31,31 @@ code {
 	background-color: var(--primary-color);
 }
 
-.nav li {
+.nav li a {
 	float: right;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-grow: 1;
-	padding: 18px 40px;
+	padding: 18px 30px;
 	transition: background-color 300ms;
 	background-color: inherit;
-}
-
-.nav li:hover {
-	background-color: var(--secondary-color);
-}
-
-.nav li a {
-	display: table-cell;
+	/* display: table-cell; */
 	text-decoration: none;
-	font-size: large;
-	font-weight: normal;
+	font-size: 20px;
+	font-weight: 400;
 	color: var(--secondary-text);
 }
 
-.logo {
-	width: 5px;
-	height: 10px;
-	float: left;
+.nav li a:hover {
+	background-color: var(--secondary-color);
 }
 
-.nav li a:hover {
+
+/* .nav li a:hover {
 	color: var(--primary-text);
 	transition: color 0.5s;
-}
+} */
 
 /* .nav {
 	float: right;
