@@ -38,6 +38,10 @@ const QUESTIONS: Question[] = [
 				option: 'Big ram',
 				tag: HighRam,
 			},
+			{
+				option: 'mid ram',
+				tag: MidRam,
+			}
 		],
 	},
 	{
