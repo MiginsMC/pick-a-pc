@@ -3,6 +3,7 @@
 	--secondary-color: #788bff;
 	--primary-text: #111111;
 	--secondary-text: #fefefe;
+    --rounded-px: 20px;
 }
 
 body {

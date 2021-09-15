@@ -48,8 +48,11 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 
 	return (
 		<div className="quiz">
-			<div className="question">{question}</div>
-			{help ? <div className="help">{help}</div> : ''}
+			<div className="question">
+				{question}
+				{help ? <div className="help">{help}</div> : ''}
+			</div>
+
 			<br />
 			<div className="options">{optionsFormatted}</div>
 		</div>

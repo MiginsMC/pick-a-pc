@@ -1,0 +1,14 @@
+:root {
+	--primary-color: #5465ff;
+	--secondary-color: #788bff;
+	--primary-text: #111111;
+	--secondary-text: #fefefe;
+    --rounded-px: 20px;
+}
+
+.find {
+	text-align: center;
+	padding-top: 130px;
+    color: var(--primary-text);
+}
+
