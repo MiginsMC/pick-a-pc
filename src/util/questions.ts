@@ -17,15 +17,43 @@ const {
 
 interface Question {
 	question: string;
+	canDisplay?: (t: TagTypes[]) => boolean; // DO NOT display question if condition is false
 	help?: string;
 	options: {
 		option: string;
-		tag: TagTypes;
+		tag?: TagTypes;
 	}[];
 }
 
 // TODO: Make questions conditional on current Tags
 const QUESTIONS: Question[] = [
+		{
+		question: 'Desk or Lap - top',
+		options: [
+			{
+				option: 'Laptop',
+				tag: Laptop,
+			},
+			{
+				option: 'Desktop',
+				tag: Desktop
+			}
+		]
+	},
+	{
+		question: 'Weight?',
+		canDisplay: (t) => t?.includes(Laptop),
+		options: [
+			{
+				option: 'Weight is not a problem',
+				// No tag
+			},
+			{
+				option: 'I need light',
+				tag: Light,
+			}
+		]
+	},
 	{
 		question: 'How much ram do you want',
 		help: 'Ram is speed of computer',
@@ -41,6 +69,10 @@ const QUESTIONS: Question[] = [
 			{
 				option: 'mid ram',
 				tag: MidRam,
+			},
+			{
+				option: 'answer',
+				tag: LowRam,
 			}
 		],
 	},

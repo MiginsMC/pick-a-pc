@@ -28,13 +28,15 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 
 	function handleClick(event: MouseEvent) {
 		event.preventDefault();
-		setQuizResults(results => [
-			...results,
-			options[parseInt((event.target as HTMLButtonElement).name)].tag,
-		]);
+		const tag = options[parseInt((event.target as HTMLButtonElement).name)].tag;
+		if (tag) setQuizResults(results => [...results, tag]);
 		// place starts at 0 so must add 1
 		if (place + 1 < QUESTIONS.length) {
-			setPlace(place + 1);
+			if (
+				QUESTIONS[place + 1].canDisplay === undefined ||
+				QUESTIONS[place + 1].canDisplay?.(quizResults) === true
+			) // we are not doing anything if the condition fails correctly
+				setPlace(place + 1);
 		} else {
 			setPlace(-1);
 		}
@@ -49,8 +51,14 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 	return (
 		<div className="quiz">
 			<div className="question">
-				{question}
-				{help ? <div className="help">{help}</div> : ''}
+				{question}{' '}
+				{help ? (
+					<span className="mark">
+						🛈<span className="help">{help}</span>
+					</span>
+				) : (
+					''
+				)}
 			</div>
 
 			<br />
