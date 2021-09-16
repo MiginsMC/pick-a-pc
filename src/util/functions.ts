@@ -38,5 +38,5 @@ export function findMatch(tags: TagTypes[]) {
 	return COMPUTERS.filter(e =>
 		topMatches.map(e => e.place).includes(COMPUTERS.indexOf(e))
 	);
-	// Map topMatches to their indexes and only return computers whose index is contains within topMatches
+	// Map topMatches to their indexes and only return computers whose index is contained within topMatches
 }

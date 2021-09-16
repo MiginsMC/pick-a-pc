@@ -14,6 +14,8 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 	const options = QUESTIONS[place]?.options;
 
 	const [quizResults, setQuizResults] = useState<TagTypes[]>([]);
+	const [ready, setReady] = useState<boolean>(false);
+	const [canDisplayNext, setCanDisplayNext] = useState<boolean>();
 
 	const optionsFormatted = options?.map(e => (
 		<button
@@ -29,14 +31,10 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 	function handleClick(event: MouseEvent) {
 		event.preventDefault();
 		const tag = options[parseInt((event.target as HTMLButtonElement).name)].tag;
-		if (tag) setQuizResults(results => [...results, tag]);
+		if (tag !== undefined) setQuizResults(results => [...results, tag]); // Because 0 is apparently falsy... 
 		// place starts at 0 so must add 1
 		if (place + 1 < QUESTIONS.length) {
-			if (
-				QUESTIONS[place + 1].canDisplay === undefined ||
-				QUESTIONS[place + 1].canDisplay?.(quizResults) === true
-			) // we are not doing anything if the condition fails correctly
-				setPlace(place + 1);
+			setReady(true);
 		} else {
 			setPlace(-1);
 		}
@@ -47,6 +45,20 @@ function Quiz({ onFinish = () => {} }: QuizProps) {
 			onFinish(quizResults);
 		}
 	}, [quizResults, place, onFinish]);
+
+	useEffect(() => { // Because react :/
+		if (ready === true) {
+			const nextPlace = (p: number): number => {
+				const canDisplay = QUESTIONS[p + 1]?.canDisplay?.(quizResults);
+				return (canDisplay === undefined || canDisplay === true) ? p + 1 : nextPlace(p + 1);
+				
+			};
+			setPlace(nextPlace(place)); // yay recursion
+		}
+		return () => {
+			setReady(false);
+		};
+	}, [ready, quizResults, place]);
 
 	return (
 		<div className="quiz">
