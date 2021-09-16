@@ -22,7 +22,7 @@ function Navbar() {
 				</li>
 				<li className="logo">
 					<Link to="/">
-						<img src="/mainLogo.png" width="40" height="20" alt="Logo" />
+						<img src="/mainLogo.png" alt="Logo" />
 					</Link>
 				</li>
 			</ul>

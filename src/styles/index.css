@@ -32,7 +32,7 @@ code {
 	background-color: var(--primary-color);
 }
 
-.nav li a {
+.nav li:not(.logo) a {
 	float: right;
 	display: flex;
 	align-items: center;
@@ -48,8 +48,15 @@ code {
 	color: var(--secondary-text);
 }
 
-.nav li a:hover {
+.nav li:not(.logo) a:hover {
 	background-color: var(--secondary-color);
+}
+
+.logo * img {
+	/* height: 30%; */
+	width: 5%;
+	flex-grow: 1;
+	margin-top: 0.5%;
 }
 
 
