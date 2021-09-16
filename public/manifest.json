@@ -1,5 +1,5 @@
 {
-	"short_name": "Pick a pc",
+	"short_name": "Pick a PC",
 	"name": "PC Picker",
 	"start_url": ".",
 	"display": "standalone",
